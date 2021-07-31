@@ -36,34 +36,34 @@ function green (){
 
 // ## Part 2
 
-let submitButton = document.querySelector("form button");;
+const submitButton = document.getElementById("form button");;
 
 submitButton.addEventListener("click", (event) => {
   event.preventDefault();
 
-  let formFields = document.querySelectorAll(".form-control");
-  let check = true;
+  const formFields = document.querySelectorAll(".form-control");
+  const valid = true;
 
 // Check email
   if(!formFields[0].value.includes("@") || formFields[0].value.length === 0){
     formFields[0].style.backgroundColor = "red";
-    check = false;
+    valid = false;
   } else {
-    formFields[0].style.backgroundColor = "transparent";
+    formFields[0].style.backgroundColor = "white";
   };
 
   // Check empty
   for(i = 1; i < formFields.length; i++) {
     if(formFields[i].value.length === 0){
     formFields[i].style.backgroundColor = "red";
-    check = false;
+    valid = false;
     } else {
-    formFields[i].style.backgroundColor = "transparent";
+    formFields[i].style.backgroundColor = "white";
     }
   };
 
 // Check field
-  if(check) {
+  if(valid) {
     formFields.forEach((field) => field.value = " ")
     alert("Thank you for filling out the form");
      //Display an alert to thank you for filling out the form
